@@ -30,7 +30,7 @@ def datetime_validation(request):
     start_date, end_date = request.GET.get('start_date', None), request.GET.get('end_date', None)  
     start_date_obj, end_date_obj = datetime.strptime(start_date, '%Y-%m-%d'), datetime.strptime(end_date, '%Y-%m-%d')
 
-    if type(start_date_obj) is not datetime and type(end_date_obj) is not datetime:
+    if type(start_date_obj) is not datetime or type(end_date_obj) is not datetime:
         return Response('input date is not valid', status=status.HTTP_400_BAD_REQUEST)
     
     end_date_obj += timedelta(days=1)

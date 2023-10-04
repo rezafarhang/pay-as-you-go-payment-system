@@ -45,7 +45,6 @@ class TotalCostReceiptView(RetrieveAPIView):
 
 
         serializer = TotalCostSerializer(instance)
-        serializer.is_valid(raise_exception=True)
 
         return Response(serializer.validated_data)
     
@@ -63,7 +62,6 @@ class TotalCostReceiptPerServiceView(RetrieveAPIView):
                                 ).aggregate(total_request_cost=Sum('request_cost'), total_request_count=Count('request_cost'))
         
         serializer = TotalCostSerializer(instance)
-        serializer.is_valid(raise_exception=True)
 
         return Response(serializer.validated_data)
         

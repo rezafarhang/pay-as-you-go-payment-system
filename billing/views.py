@@ -46,7 +46,7 @@ class TotalCostReceiptView(RetrieveAPIView):
 
         serializer = TotalCostSerializer(instance)
 
-        return Response(serializer.validated_data)
+        return Response(serializer.data)
     
 
 class TotalCostReceiptPerServiceView(RetrieveAPIView):
@@ -63,6 +63,6 @@ class TotalCostReceiptPerServiceView(RetrieveAPIView):
         
         serializer = TotalCostSerializer(instance)
 
-        return Response(serializer.validated_data)
+        return Response(serializer.data)
         
 
